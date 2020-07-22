@@ -1,0 +1,2 @@
+rootProject.name = "Kirana Store"
+include ':app'
