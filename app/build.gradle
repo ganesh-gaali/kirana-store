@@ -2,17 +2,16 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         applicationId "com.spark.kiranastore"
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -33,16 +32,14 @@ android {
 }
 
 dependencies {
+    implementation  deps.support.jetbrain_kotlin_std_lib
+    implementation deps.support.androidx_core
+    implementation deps.support.app_compat
+    implementation deps.support.material
+    implementation deps.support.constrain_layout
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    testImplementation deps.unittest.junit
 
-    testImplementation 'junit:junit:4.13'
-
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation deps.uitest.espresso
+    androidTestImplementation deps.uitest.ext_junit
 }
